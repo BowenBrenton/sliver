@@ -667,9 +667,10 @@ var (
 
 // FormatOptions defines the text-formatting to perform on parts of the Table.
 type FormatOptions struct {
-	Footer text.Format // footer row(s) text format
-	Header text.Format // header row(s) text format
-	Row    text.Format // (data) row(s) text format
+	Direction text.Direction // (forced) BiDi direction for each Column
+	Footer    text.Format    // footer row(s) text format
+	Header    text.Format    // header row(s) text format
+	Row       text.Format    // (data) row(s) text format
 }
 
 var (
@@ -702,6 +703,10 @@ var (
 // Options defines the global options that determine how the Table is
 // rendered.
 type Options struct {
+	// DoNotColorBordersAndSeparators disables coloring all the borders and row
+	// or column separators.
+	DoNotColorBordersAndSeparators bool
+
 	// DrawBorder enables or disables drawing the border around the Table.
 	// Example of a table where it is disabled:
 	//     # │ FIRST NAME │ LAST NAME │ SALARY │
